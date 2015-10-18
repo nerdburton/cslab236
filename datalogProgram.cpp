@@ -30,6 +30,29 @@ void datalogProgram::addToQueries(Predicate new_predicate)
 	queries.addToList(new_predicate);
 }
 
+Object datalogProgram::getSchemes()
+{
+	return schemes;
+}
+Object datalogProgram::getFacts()
+{
+	return facts;
+}
+Object datalogProgram::getQueries()
+{
+	return queries;
+}
+Object datalogProgram::getRules()
+{
+	return rules;
+}
+void datalogProgram::setDatalogProgram(Object s, Object f, Object q, Object r)
+{
+	schemes = s;
+	facts = f;
+	queries = q;
+	rules = r;
+}
 string datalogProgram::tostring()
 {
 	string str;

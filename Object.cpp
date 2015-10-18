@@ -12,6 +12,11 @@ void Object::addToList(Predicate new_predicate)
 	list.push_back(new_predicate);
 }
 
+vector<Predicate> Object::getObj()
+{
+	return list;
+}
+
 string Object::tostring()
 {
 	string str = id + "(" + to_string(list.size()) + "):";

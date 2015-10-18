@@ -1,4 +1,5 @@
 /*
+
  *
  * datalogProgram parser
  * As far as I can tell, the purpose of this is to check to make sure that the program can compile
@@ -54,6 +55,11 @@ public:
 	void addToFacts(Predicate new_predicate);
 	void addToQueries(Predicate new_predicate);
 	void addToRules(Predicate new_rule);
+
+	Object getSchemes();
+	Object getFacts();
+	Object getQueries();
+	Object getRules();
 
 	string tostring();
 };

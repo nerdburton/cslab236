@@ -16,6 +16,8 @@ public:
 	~Predicate();
 
 	void insert_value(Parameter value);
+	vector<Parameter> getVec();
+	void editDat(vector<Parameter> vec);
 	string tostring();
 };
 

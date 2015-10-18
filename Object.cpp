@@ -17,6 +17,11 @@ vector<Predicate> Object::getObj()
 	return list;
 }
 
+void Object::editList(vector<Predicate> vec)
+{
+	list = vec;
+}
+
 string Object::tostring()
 {
 	string str = id + "(" + to_string(list.size()) + "):";

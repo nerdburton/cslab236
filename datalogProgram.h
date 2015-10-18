@@ -61,5 +61,7 @@ public:
 	Object getQueries();
 	Object getRules();
 
+	void setDatalogProgram(Object s, Object f, Object q, Object r);
+
 	string tostring();
 };

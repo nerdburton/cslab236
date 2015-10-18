@@ -17,5 +17,6 @@ public:
 	void insertID(string str);
 	void addToList(Predicate new_predicate);
 	vector<Predicate> getObj();
+	void editList(vector<Predicate> vec);
 	string tostring();
 };

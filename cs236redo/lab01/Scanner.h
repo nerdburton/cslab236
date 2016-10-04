@@ -26,6 +26,9 @@
  *	Total Tokens = 9
  */
 
+#ifndef SCANNER_H
+#define SCANNER_H
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -56,6 +59,11 @@ public:
 	void tokenizer_hub(string fileText);
 
 	/**
+	 * Detects char tokens
+	 */
+	bool is_char_token(char ch);
+	
+	/**
 	 * recursively creates strings for the tokens
 	 */
 	string stringer(string str);
@@ -63,33 +71,27 @@ public:
 	string block_commenter(string str);
 	string ider(string str);
 
+	/**
+	 * used to create tokens
+	 *
+	 * after tokenizer_hub determines what kind of token 
+	 *	a character might be starting, tokenizer
+	 *	constructs a token until meeting end case
+	 *	to end construction.
+	 * If an EOF is detected and criteria for token has
+	 *	not been created, token is UNIDENTIFIED
+	 */
 	void string_tokenizer();
 	void comment_tokenizer();
 	void block_comment_tokenizer();
 	void id_tokenizer();
+	
+	/**
+	 * Used for single character tokens.
+	 *
+	 * Special case for COLON token
+	 *	After ':' looks for a '-'
+	 */
 	void char_tokenizer();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
+#endif

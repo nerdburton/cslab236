@@ -20,7 +20,12 @@ void Scanner::tokenizer_hub(string fileText) {
 			charTokenizer(ch)
 			fileText = fileTextTruncated
 		}
-		else if
+		else if(ch == '\'') {
+			string str = stringer(fileText)
+			string_tokenizer(str) 
+			fileText = fileTextTruncated
+		}
+		else if(ch == '#' 
 	}
 }
 

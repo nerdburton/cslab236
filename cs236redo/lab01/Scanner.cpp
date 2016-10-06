@@ -16,16 +16,25 @@ void Scanner::tokenizer_hub(string fileText) {
 	while (stringStillHasStuff)
 	{
 		ch = firstCharacterOfFileText
-		if(is_char_token(ch)) {
+		if (is_char_token(ch)) {
 			charTokenizer(ch)
 			fileText = fileTextTruncated
 		}
-		else if(ch == '\'') {
+		else if (ch == '\'') {
 			string str = stringer(fileText)
 			string_tokenizer(str) 
 			fileText = fileTextTruncated
 		}
-		else if(ch == '#' 
+		else if (ch == '#') {
+			//check if line or block comment
+			
+			string str = commenter(fileText)
+			comment_tokenizer(str)
+			fileText = fileTextTruncated
+		}
+		else {
+			
+		}
 	}
 }
 

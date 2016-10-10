@@ -26,7 +26,7 @@
  *	Total Tokens = 9
  */
 
-#ifndef SCANNER_H
+/**#ifndef SCANNER_H
 #define SCANNER_H
 
 #include <iostream>
@@ -44,7 +44,7 @@ public:
 
 	// scan in string
 	string import_text(string filename);
-
+*/
 	/**
 	 * Main hub
 	 * 
@@ -56,20 +56,20 @@ public:
 	 * for multicharacter tokens (IDs, strings and comments)
 	 * send to multicharacter tokenizer
 	 */
-	void tokenizer_hub(string fileText);
+	//void tokenizer_hub(string fileText);
 
 	/**
 	 * Detects char tokens
 	 */
-	bool is_char_token(char ch);
+	//bool is_char_token(char ch);
 	
 	/**
 	 * recursively creates strings for the tokens
-	 */
+	 *//**
 	string stringer(string str);
 	string commenter(string str);
 	string block_commenter(string str);
-	string ider(string str);
+	string ider(string str);*/
 
 	/**
 	 * used to create tokens
@@ -80,11 +80,11 @@ public:
 	 *	to end construction.
 	 * If an EOF is detected and criteria for token has
 	 *	not been created, token is UNIDENTIFIED
-	 */
+	 *//**
 	void string_tokenizer();
 	void comment_tokenizer();
 	void block_comment_tokenizer();
-	void id_tokenizer();
+	void id_tokenizer();*/
 	
 	/**
 	 * Used for single character tokens.
@@ -92,6 +92,37 @@ public:
 	 * Special case for COLON token
 	 *	After ':' looks for a '-'
 	 */
-	void char_tokenizer();
-}
-#endif
+	//void char_tokenizer();
+//}
+//#endif
+
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <cctype>
+#include "Token.h" 
+#include "TokenStore.h"
+
+using namespace std;
+
+class Scanner
+{
+public:
+	string file;
+	TokenStore ts;
+
+	Scanner();
+	~Scanner(void);
+
+	void begin_scan(string filename);
+
+	string import_text(string filename);
+
+	void scan_string(string::iterator iter, int line_num, string str, int line_quantity);
+	void key_words_and_stuff(string::iterator iter, int line_num, string str, bool first_time);
+	void block_comment(string::iterator iter, int line_num, string str, int line_quantity);
+	void line_comment(string::iterator iter, int line_num, string str);
+	void scan_token(string::iterator iter, int line_num);
+	void print_tokens();
+	vector<Token> returnTokenList();
+};
